@@ -1,0 +1,1294 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ahmed Mohammed · Commercial .NET Backend Developer</title>
+<meta name="description" content="Commercial .NET Backend Developer specializing in scalable systems, ASP.NET Core, Clean Architecture, SQL Server, and custom enterprise e-commerce and POS platforms.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#F2F6F5;--surface:#fff;--alt:#E8EFED;--line:#CBD9D6;--ink:#0C2A33;--muted:#4F6870;--accent:#E8A317;--accent-text:#8A4B00;--on-accent:#1A1300;--teal:#0B6E7A;--paper:#0C2A33;--paper-ink:#EAF1EE;
+--heading:'Bricolage Grotesque','IBM Plex Sans',system-ui,sans-serif;--body:'IBM Plex Sans',system-ui,sans-serif;--mono:'IBM Plex Mono',ui-monospace,monospace;--r:6px;--r-lg:14px;--ease:cubic-bezier(.16,1,.3,1)}
+html[data-theme=dark]{--bg:#0A1A21;--surface:#10262F;--alt:#0D212A;--line:#24424D;--ink:#EAF1EE;--muted:#98AEB4;--accent:#F2B33D;--accent-text:#F2B33D;--teal:#5FC9B8;--paper:#EFEBDF;--paper-ink:#1B2A2E}
+html.lang-ar{--heading:'IBM Plex Sans Arabic','Bricolage Grotesque',sans-serif;--body:'IBM Plex Sans Arabic','IBM Plex Sans',sans-serif}
+html.lang-ar,html.lang-ar *{letter-spacing:0!important}
+html.lang-ar body{line-height:1.9}
+html.lang-ar .hero-name{line-height:1.25;font-size:clamp(40px,6vw,80px)}
+html.lang-ar .section-heading,html.lang-ar .contact-box h2{line-height:1.4}
+
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:72px}
+body{font-family:var(--body);color:var(--ink);background:var(--bg);line-height:1.7;overflow-x:hidden;transition:background-color .3s,color .3s}
+a{color:inherit;text-decoration:none}
+ul{list-style:none}
+button{font:inherit;border:0;background:none;color:inherit;cursor:pointer}
+:focus-visible{outline:2px solid var(--accent-text);outline-offset:3px}
+::selection{background:var(--accent);color:var(--on-accent)}
+::-webkit-scrollbar{width:10px}
+::-webkit-scrollbar-track{background:var(--bg)}
+::-webkit-scrollbar-thumb{background:var(--line);border-radius:999px;border:2px solid var(--bg)}
+.wrap{max-width:1160px;margin:0 auto;padding:0 32px}
+section{padding:104px 0}
+.section-alt-bg{background:var(--alt);border-block:1px solid var(--line)}
+
+/* header */
+header{position:sticky;top:0;z-index:100;background:color-mix(in srgb,var(--bg) 90%,transparent);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+nav{max-width:1160px;margin:0 auto;padding:14px 32px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.brand{font-family:var(--heading);font-weight:700;font-size:21px;letter-spacing:-.02em}
+.brand span{color:var(--accent-text)}
+.nav-links{display:flex;gap:26px;font-size:14.5px;color:var(--muted)}
+.nav-links a{padding:6px 0;border-bottom:2px solid transparent;transition:color .2s,border-color .2s}
+.nav-links a:hover{color:var(--ink);border-color:var(--accent)}
+.nav-right{display:flex;align-items:center;gap:10px}
+.icon-btn{width:38px;height:38px;border-radius:var(--r);border:1px solid var(--line);display:grid;place-items:center;font-size:13px;font-weight:600;transition:border-color .2s,color .2s}
+.icon-btn:hover{border-color:var(--accent);color:var(--accent-text)}
+.connect-btn,.btn-solid{background:var(--accent);color:var(--on-accent);border-radius:var(--r);font-weight:600;display:inline-flex;align-items:center;gap:8px;transition:filter .2s,transform .25s var(--ease)}
+.connect-btn{padding:9px 18px;font-size:14px;white-space:nowrap}
+.connect-btn:hover,.btn-solid:hover{filter:brightness(1.08);transform:translateY(-1px)}
+
+/* hero */
+.hero-section{position:relative;padding:88px 0 112px;overflow:hidden;border-bottom:1px solid var(--line)}
+#topologyCanvas{position:absolute;inset:0;width:100%;height:100%;z-index:1;opacity:.55}
+.hero-inner{position:relative;z-index:2;display:grid;grid-template-columns:1.25fr .75fr;gap:64px;align-items:center}
+.status-pill{display:inline-flex;align-items:center;gap:10px;font-size:14px;color:var(--muted);margin-bottom:28px}
+.status-tag{font-family:var(--mono);font-size:12px;font-weight:500;color:var(--on-accent);background:var(--accent);padding:2px 8px;border-radius:3px}
+.hero-name{display:block;font-family:var(--heading);font-weight:800;font-size:clamp(46px,7.2vw,98px);line-height:.98;letter-spacing:-.035em}
+.hero-role{display:block;margin-top:22px;font-size:clamp(20px,2.4vw,28px);font-weight:500;letter-spacing:-.01em;line-height:1.25;color:var(--accent-text)}
+.hero-desc{margin-top:22px;max-width:52ch;font-size:18px;color:var(--muted)}
+.hero-cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:34px}
+.btn-solid,.btn-outline{padding:13px 24px;border-radius:var(--r);font-weight:600;font-size:15px;display:inline-flex;align-items:center;gap:8px}
+.btn-outline{border:1px solid var(--line);transition:border-color .2s}
+.btn-outline:hover{border-color:var(--ink)}
+.social-row{display:flex;gap:10px;margin-top:34px}
+.social-link{width:40px;height:40px;border:1px solid var(--line);border-radius:var(--r);display:grid;place-items:center;color:var(--muted);transition:color .2s,border-color .2s}
+.social-link:hover{color:var(--accent-text);border-color:var(--accent)}
+
+/* receipt card: the one bold move */
+.arch-spec-card{background:var(--paper);color:var(--paper-ink);font-family:var(--mono);font-size:13px;padding:28px 26px 44px;border-radius:4px 4px 0 0;transform:rotate(1.2deg);-webkit-mask:conic-gradient(from -45deg at bottom,#0000,#000 1deg 89deg,#0000 90deg) 50%/16px 100%;mask:conic-gradient(from -45deg at bottom,#0000,#000 1deg 89deg,#0000 90deg) 50%/16px 100%;animation:print 1.3s var(--ease) .25s both}
+@keyframes print{from{clip-path:inset(0 0 100% 0)}to{clip-path:inset(0)}}
+.arch-spec-header{display:flex;flex-direction:column;gap:6px;padding-bottom:14px;margin-bottom:18px;border-bottom:1px dashed color-mix(in srgb,var(--paper-ink) 45%,transparent)}
+.arch-title{display:flex;align-items:center;gap:8px;font-weight:600;font-size:14px}
+.arch-status{font-size:12px;opacity:.7}
+.arch-stack-grid{display:flex;flex-direction:column;gap:14px}
+.arch-stack-item{display:flex;align-items:baseline;gap:8px}
+.arch-stack-label{flex:1;display:flex;align-items:baseline;gap:8px;font-size:12px;opacity:.7}
+.arch-stack-label::after{content:'';flex:1;border-bottom:1px dotted currentColor;opacity:.6;translate:0 -3px}
+.arch-stack-val{font-weight:500;text-align:end}
+.arch-metrics-row{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:22px;padding-top:16px;border-top:1px dashed color-mix(in srgb,var(--paper-ink) 45%,transparent);font-size:12px}
+.arch-metric-item span{display:block;font-size:11px;opacity:.6;margin-bottom:2px}
+
+/* section heads */
+.section-heading{font-family:var(--heading);font-weight:700;font-size:clamp(30px,4vw,46px);line-height:1.1;letter-spacing:-.025em;max-width:22ch}
+.section-sub{margin-top:14px;max-width:58ch;font-size:17px;color:var(--muted)}
+.about-layout,.resume-grid,.services-grid,.portfolio-grid,.testimonials-grid{margin-top:56px}
+
+/* about */
+.about-layout{display:grid;grid-template-columns:.8fr 1.2fr;gap:72px;align-items:start}
+.about-stat-panel{border-top:2px solid var(--ink)}
+.about-stat-block{display:flex;align-items:baseline;gap:20px;padding:22px 0;border-bottom:1px solid var(--line)}
+.about-stat-number{min-width:2.4ch;font-family:var(--heading);font-weight:800;font-size:52px;line-height:1;letter-spacing:-.03em;font-variant-numeric:tabular-nums}
+.about-stat-label{font-size:15px;color:var(--muted)}
+.about-prose p{max-width:62ch;font-size:18px}
+.about-prose p+p{margin-top:18px}
+.about-prose strong{font-weight:600}
+.lang-chips-row{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px}
+.lang-chip{font-size:14px;padding:6px 14px;border:1px solid var(--line);border-radius:999px;color:var(--muted)}
+
+/* resume */
+.resume-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+.resume-card{background:var(--surface);border:1px solid var(--line);border-inline-start:3px solid var(--accent);border-radius:var(--r);padding:28px}
+.date-pill{display:block;font-family:var(--mono);font-size:12.5px;color:var(--accent-text)}
+.resume-card h3{font-family:var(--heading);font-size:21px;line-height:1.25;letter-spacing:-.01em;margin:10px 0 4px}
+.resume-card .org{font-size:14.5px;font-weight:500;color:var(--teal);margin-bottom:12px}
+.resume-card p{font-size:15.5px;color:var(--muted)}
+
+/* services: one ruled table, not six cards */
+.services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:var(--r-lg);overflow:hidden}
+.service-card{background:var(--bg);padding:32px 28px;transition:background .25s}
+.service-card:hover{background:var(--surface)}
+.service-heading-wrap{display:flex;align-items:flex-start;gap:14px;margin-bottom:14px}
+.service-inline-icon{flex:none;width:26px;height:26px;margin-top:2px;color:var(--accent-text)}
+.service-card h3{font-family:var(--heading);font-size:19px;font-weight:600;line-height:1.3;letter-spacing:-.01em}
+.service-card p{font-size:15px;color:var(--muted)}
+
+/* projects */
+.portfolio-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.proj-card{display:flex;flex-direction:column;background:var(--surface);border:1px solid var(--line);border-radius:var(--r-lg);overflow:hidden;transition:border-color .25s}
+.proj-card:hover{border-color:var(--accent)}
+.proj-slider{position:relative}
+.proj-image-container{position:relative;aspect-ratio:16/10;background:var(--alt);cursor:zoom-in;overflow:hidden;display:grid;place-items:center}
+.slider-img{width:100%;height:100%;object-fit:cover;display:block}
+.slider-controls{position:absolute;inset-inline:10px;top:50%;translate:0 -50%;display:flex;justify-content:space-between;pointer-events:none}
+.slide-btn{pointer-events:auto;width:34px;height:34px;display:grid;place-items:center;font-size:12px;border-radius:var(--r);border:1px solid var(--line);background:color-mix(in srgb,var(--bg) 85%,transparent);transition:background .2s}
+.slide-btn:hover{background:var(--accent);color:var(--on-accent)}
+.proj-tags-bar{display:flex;flex-wrap:wrap;gap:6px;padding:16px 22px 0}
+.proj-tag{font-family:var(--mono);font-size:12px;color:var(--teal);border:1px solid var(--line);border-radius:3px;padding:2px 8px}
+.proj-body{display:flex;flex-direction:column;flex:1;padding:14px 22px 24px}
+.proj-year{font-family:var(--mono);font-size:12.5px;color:var(--muted)}
+.proj-body h3{font-family:var(--heading);font-size:21px;line-height:1.25;letter-spacing:-.01em;margin:4px 0 10px}
+.proj-body p{font-size:15px;color:var(--muted)}
+.proj-links{margin-top:auto;padding-top:18px}
+.proj-links a{display:inline-flex;align-items:center;gap:6px;font-size:14.5px;font-weight:600;padding-bottom:1px;border-bottom:1px solid var(--accent);transition:color .2s}
+.proj-links a:hover{color:var(--accent-text)}
+.fallback-blueprint{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;color:var(--teal);font-family:var(--mono);font-size:13px;font-weight:500;background:repeating-linear-gradient(0deg,transparent 0 23px,color-mix(in srgb,var(--line) 70%,transparent) 23px 24px),repeating-linear-gradient(90deg,transparent 0 23px,color-mix(in srgb,var(--line) 70%,transparent) 23px 24px)}
+.fallback-blueprint svg{width:38px;height:38px;stroke-width:1.5}
+
+/* lightbox */
+.lightbox{position:fixed;inset:0;z-index:200;display:none;place-items:center;padding:24px;background:rgba(5,12,16,.86);backdrop-filter:blur(6px)}
+.lightbox.open{display:grid}
+.lightbox-content{position:relative;max-width:min(1000px,100%)}
+.lightbox-close{position:absolute;top:-14px;inset-inline-end:-14px;z-index:2;width:38px;height:38px;border-radius:50%;display:grid;place-items:center;background:var(--accent);color:var(--on-accent)}
+#lightboxMediaContainer{position:relative;min-width:min(720px,88vw);min-height:min(450px,50vh);background:var(--alt);border-radius:var(--r-lg);overflow:hidden}
+#lightboxMediaContainer img{display:block;max-width:100%;max-height:82vh;margin:0 auto}
+
+/* testimonials: open columns, ruled on top */
+.testimonials-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:40px 32px}
+.testimonial-card{display:flex;flex-direction:column;gap:14px;padding-top:22px;border-top:2px solid var(--accent)}
+.testimonial-top{display:flex;flex-direction:column;gap:2px}
+.testimonial-project{font-family:var(--heading);font-size:17px;font-weight:600;line-height:1.3}
+.testimonial-date{font-family:var(--mono);font-size:12px;color:var(--muted)}
+.stars-row{display:flex;gap:3px;color:var(--accent-text)}
+.testimonial-quote{font-size:15.5px;line-height:1.75}
+.testimonial-client-row{margin-top:auto;display:flex;justify-content:space-between;gap:12px;font-size:13.5px;color:var(--muted)}
+.testimonial-badges{margin-top:auto;display:flex;flex-wrap:wrap;gap:6px}
+.testimonial-badge{font-size:12.5px;padding:3px 10px;border:1px solid var(--line);border-radius:999px;color:var(--muted)}
+
+/* contact */
+#contact{background:var(--alt);border-top:1px solid var(--line)}
+.contact-box{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:start}
+.contact-box h2{font-family:var(--heading);font-weight:700;font-size:clamp(30px,4vw,46px);line-height:1.1;letter-spacing:-.025em}
+.contact-box p{max-width:48ch;margin-top:18px;font-size:17px;color:var(--muted)}
+.contact-list{border-top:2px solid var(--ink)}
+.contact-item{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:baseline;gap:6px 20px;padding:18px 0;border-bottom:1px solid var(--line)}
+.contact-item span{font-size:14.5px;color:var(--muted)}
+.contact-item a{font-family:var(--mono);font-size:14.5px;transition:color .2s}
+.contact-item a:hover{color:var(--accent-text)}
+footer{padding:28px 0;border-top:1px solid var(--line);font-size:14px;color:var(--muted)}
+
+.reveal-card{opacity:0;transition:opacity .6s var(--ease)}
+.reveal-card.in-view{opacity:1}
+
+@media(max-width:960px){
+  .nav-links{display:none}
+  .hero-inner,.about-layout,.contact-box{grid-template-columns:1fr;gap:48px}
+  .services-grid,.portfolio-grid,.testimonials-grid{grid-template-columns:repeat(2,1fr)}
+  .arch-spec-card{max-width:420px}
+}
+@media(max-width:640px){
+  .wrap,nav{padding-inline:20px}
+  section{padding:72px 0}
+  .hero-section{padding:56px 0 72px}
+  .resume-grid,.services-grid,.portfolio-grid,.testimonials-grid{grid-template-columns:1fr}
+  .about-stat-number{font-size:44px}
+}
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *{transition:none!important}
+  .arch-spec-card{animation:none}
+  .reveal-card{opacity:1}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <nav>
+    <div class="brand">
+      Ahmed<span>.Dev</span>
+    </div>
+    <ul class="nav-links">
+      <li><a href="#home" data-i18n="nav_home">Home</a></li>
+      <li><a href="#about" data-i18n="nav_about">About Me</a></li>
+      <li><a href="#resume" data-i18n="nav_resume">Resume</a></li>
+      <li><a href="#services" data-i18n="nav_services">Services</a></li>
+      <li><a href="#projects" data-i18n="nav_projects">Projects</a></li>
+      <li><a href="#testimonials" data-i18n="nav_testimonials">Testimonials</a></li>
+      <li><a href="#contact" data-i18n="nav_contact">Contact</a></li>
+    </ul>
+    <div class="nav-right">
+      <button class="icon-btn" id="langToggle" title="Switch language" aria-label="Toggle language">AR</button>
+      <button class="icon-btn" id="themeToggle" title="Toggle theme" aria-label="Toggle dark mode">
+        <svg id="themeIcon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="5"></circle>
+          <line x1="12" y1="1" x2="12" y2="3"></line>
+          <line x1="12" y1="21" x2="12" y2="23"></line>
+          <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+          <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+          <line x1="1" y1="12" x2="3" y2="12"></line>
+          <line x1="21" y1="12" x2="23" y2="12"></line>
+          <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+          <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+        </svg>
+      </button>
+      <a href="#contact" class="connect-btn">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="22" y1="2" x2="11" y2="13"></line>
+          <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+        </svg>
+        <span data-i18n="nav_connect_text">Connect</span>
+      </a>
+    </div>
+  </nav>
+</header>
+
+<!-- ===================== HERO SECTION ===================== -->
+<section class="hero-section" id="home">
+  <!-- Interactive Backend Topology Canvas -->
+  <canvas id="topologyCanvas"></canvas>
+
+  <div class="wrap hero-inner">
+    <div>
+      <div class="status-pill">
+        <span class="status-tag" data-i18n="hero_status_tag">ACTIVE</span>
+        <span data-i18n="hero_status">Available for freelance and custom backend systems</span>
+      </div>
+      <h1 class="hero-name">
+        Ahmed Mohammed
+        <span class="hero-role" data-i18n="hero_role">Commercial .NET Backend Developer</span>
+      </h1>
+      <p class="hero-desc" data-i18n="hero_desc">
+        I turn business ideas and manual processes into simple, reliable web applications built for growth.
+      </p>
+      <div class="hero-cta">
+        <a href="https://drive.google.com/file/d/1NHN8n-HoWq6a4FlrCs9xIIhu117yT1Z3/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="btn-solid">
+          <span data-i18n="btn_resume">Resume</span>
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="7" y1="17" x2="17" y2="7"></line>
+            <polyline points="7 7 17 7 17 17"></polyline>
+          </svg>
+        </a>
+        <a href="#projects" class="btn-outline">
+          <span data-i18n="btn_projects">View Projects</span>
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="12" y1="5" x2="12" y2="19"></line>
+            <polyline points="19 12 12 19 5 12"></polyline>
+          </svg>
+        </a>
+      </div>
+      <div class="social-row">
+        <a href="https://linkedin.com/in/ahmedm-dev" target="_blank" rel="noopener noreferrer" class="social-link" title="LinkedIn" aria-label="LinkedIn">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+            <rect x="2" y="9" width="4" height="12"></rect>
+            <circle cx="4" cy="4" r="2"></circle>
+          </svg>
+        </a>
+        <a href="https://github.com/arrm33" target="_blank" rel="noopener noreferrer" class="social-link" title="GitHub" aria-label="GitHub">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+          </svg>
+        </a>
+        <a href="mailto:ammo75180@gmail.com" class="social-link" title="Email" aria-label="Email">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+            <polyline points="22,6 12,13 2,6"></polyline>
+          </svg>
+        </a>
+        <a href="tel:+201092055779" class="social-link" title="Phone" aria-label="Phone">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+          </svg>
+        </a>
+      </div>
+    </div>
+
+    <!-- Architectural Spec Card -->
+    <div class="arch-spec-card">
+      <div class="arch-spec-header">
+        <div class="arch-title">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path>
+          </svg>
+          <span data-i18n="arch_title">WHAT I BUILD</span>
+        </div>
+        <div class="arch-status" data-i18n="arch_status">OPEN FOR NEW PROJECTS</div>
+      </div>
+      <div class="arch-stack-grid">
+        <div class="arch-stack-item">
+          <span class="arch-stack-label" data-i18n="arch_label_core">E-COMMERCE</span>
+          <span class="arch-stack-val" data-i18n="arch_val_core">Custom online stores</span>
+        </div>
+        <div class="arch-stack-item">
+          <span class="arch-stack-label" data-i18n="arch_label_db">POS SYSTEMS</span>
+          <span class="arch-stack-val" data-i18n="arch_val_db">Sales & inventory</span>
+        </div>
+        <div class="arch-stack-item">
+          <span class="arch-stack-label" data-i18n="arch_label_pattern">BACKEND APIs</span>
+          <span class="arch-stack-val" data-i18n="arch_val_pattern">ASP.NET Core · JWT</span>
+        </div>
+        <div class="arch-stack-item">
+          <span class="arch-stack-label" data-i18n="arch_label_special">FIXES & SPEED</span>
+          <span class="arch-stack-val" data-i18n="arch_val_special">Rescue messy projects</span>
+        </div>
+      </div>
+      <div class="arch-metrics-row">
+        <div class="arch-metric-item"><span data-i18n="m1_l">REPLY</span><em style="font-style:normal" data-i18n="m1_v">&lt; 24h</em></div>
+        <div class="arch-metric-item"><span data-i18n="m2_l">SCOPE</span><em style="font-style:normal" data-i18n="m2_v">End-to-end</em></div>
+        <div class="arch-metric-item"><span data-i18n="m3_l">SUPPORT</span><em style="font-style:normal" data-i18n="m3_v">After launch</em></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== ABOUT ME ===================== -->
+<section id="about">
+  <div class="wrap">
+    <h2 class="section-heading" data-i18n="about_title">Professional Summary</h2>
+    <p class="section-sub" data-i18n="about_sub">Architecting resilient backend systems with measurable business outcomes.</p>
+    <div class="about-layout">
+      <div class="about-stat-panel reveal-card">
+        <div class="about-stat-block">
+          <span class="about-stat-number">3+</span>
+          <span class="about-stat-label" data-i18n="stat1_label">Featured production projects</span>
+        </div>
+        <div class="about-stat-block">
+          <span class="about-stat-number">3.38</span>
+          <span class="about-stat-label" data-i18n="stat2_label">GPA / 4.00 (B.Sc. Computer Science)</span>
+        </div>
+        <div class="about-stat-block">
+          <span class="about-stat-number">2026</span>
+          <span class="about-stat-label" data-i18n="stat3_label">DEPI .NET Full-Stack Graduate (MCIT)</span>
+        </div>
+      </div>
+      <div class="about-prose reveal-card">
+        <p data-i18n="about_p1">
+          .NET developer with hands-on experience building scalable backend systems and RESTful APIs using ASP.NET Core. I specialize in <strong>Clean Architecture, Entity Framework Core, SQL Server, and JWT authentication</strong>, with a strong focus on writing clean, maintainable, high-performance code.
+        </p>
+        <p data-i18n="about_p2">
+          Experienced in building production-ready applications with robust architecture, role-based access control, and efficient data management, including exploring local LLM integration with Ollama for offline AI applications.
+        </p>
+        <div class="lang-chips-row">
+          <span class="lang-chip" data-i18n="lang_ar_native">Arabic: Native</span>
+          <span class="lang-chip" data-i18n="lang_en_level">English: Professional</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== RESUME ===================== -->
+<section id="resume" class="section-alt-bg">
+  <div class="wrap">
+    <h2 class="section-heading" data-i18n="resume_title">Education & Training</h2>
+    <p class="section-sub" data-i18n="resume_sub">Academic foundation and rigorous specialized training behind the code.</p>
+    <div class="resume-grid">
+      <div class="resume-card spotlight-card reveal-card">
+        <span class="date-pill" data-i18n="edu_date">Sep 2022 to May 2026</span>
+        <h3 data-i18n="edu_title">B.Sc. Computer Science</h3>
+        <div class="org" data-i18n="edu_org">CHI, Cairo, Egypt (GPA 3.38/4.00)</div>
+        <p data-i18n="edu_desc">Core coursework: Data Structures, Software Architecture, Database Management, Artificial Intelligence, OOP.</p>
+      </div>
+      <div class="resume-card spotlight-card reveal-card">
+        <span class="date-pill" data-i18n="depi_date">2026</span>
+        <h3 data-i18n="depi_title">C# .NET Full-Stack Development</h3>
+        <div class="org" data-i18n="depi_org">Digital Egypt Pioneers Initiative (DEPI), MCIT</div>
+        <p data-i18n="depi_desc">Intensive training in ASP.NET Core, RESTful APIs, Entity Framework Core, and SQL Server, applying Clean Architecture, authentication, authorization, and database design.</p>
+      </div>
+      <div class="resume-card spotlight-card reveal-card">
+        <span class="date-pill" data-i18n="skills1_label">Core Skills</span>
+        <h3 data-i18n="skills1_title">Backend & Architecture</h3>
+        <div class="org" data-i18n="skills1_org">Languages & Frameworks</div>
+        <p data-i18n="skills1_desc">C#, Python, SQL, C++ · ASP.NET Core, .NET, RESTful APIs, EF Core, ASP.NET Core Identity · Clean Architecture, SOLID, Design Patterns.</p>
+      </div>
+      <div class="resume-card spotlight-card reveal-card">
+        <span class="date-pill" data-i18n="skills2_label">Tools</span>
+        <h3 data-i18n="skills2_title">Data, Auth & DevOps</h3>
+        <div class="org" data-i18n="skills2_org">Databases & Infrastructure</div>
+        <p data-i18n="skills2_desc">SQL Server, EF Core, Database Design · JWT, Role-Based Access Control · Docker, Git, Linux, Swagger · Local LLM Integration with Ollama.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== SERVICES ===================== -->
+<section id="services">
+  <div class="wrap">
+    <h2 class="section-heading" data-i18n="services_title">What I Can Build For You</h2>
+    <p class="section-sub" data-i18n="services_sub">Ready-to-customize backend systems for real businesses, not just generic templates.</p>
+    <div class="services-grid">
+
+      <div class="service-card spotlight-card reveal-card">
+        <div>
+          <div class="service-heading-wrap">
+            <svg class="service-inline-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="9" cy="21" r="1"></circle>
+              <circle cx="20" cy="21" r="1"></circle>
+              <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+            </svg>
+            <h3 data-i18n="srv1_title">Custom E-Commerce with nopCommerce (ASP.NET Core)</h3>
+          </div>
+          <p data-i18n="srv1_desc">I build and customize online stores using nopCommerce, the leading ASP.NET Core e-commerce platform. Services include custom plugin development, payment gateway integration (Stripe/PayPal), theme customization, version upgrades without data loss, and performance optimization for high-traffic stores.</p>
+        </div>
+      </div>
+
+      <div class="service-card spotlight-card reveal-card">
+        <div>
+          <div class="service-heading-wrap">
+            <svg class="service-inline-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+              <line x1="8" y1="21" x2="16" y2="21"></line>
+              <line x1="12" y1="17" x2="12" y2="21"></line>
+            </svg>
+            <h3 data-i18n="srv2_title">POS System for Restaurants & Retail Stores</h3>
+          </div>
+          <p data-i18n="srv2_desc">I develop custom Point-of-Sale systems for restaurants, cafes, and retail shops using ASP.NET Core and SQL Server. Features include order management, inventory tracking, sales reporting, receipt printing integration, and multi-branch support tailored to your business workflow.</p>
+        </div>
+      </div>
+
+      <div class="service-card spotlight-card reveal-card">
+        <div>
+          <div class="service-heading-wrap">
+            <svg class="service-inline-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
+            </svg>
+            <h3 data-i18n="srv3_title">Clinic & Medical Appointment Management System</h3>
+          </div>
+          <p data-i18n="srv3_desc">I build healthcare management platforms for clinics and medical practices, including appointment scheduling, patient records management, automated reminders, and secure payment processing, built with ASP.NET Core, Entity Framework, and SQL Server for reliability and data security.</p>
+        </div>
+      </div>
+
+      <div class="service-card spotlight-card reveal-card">
+        <div>
+          <div class="service-heading-wrap">
+            <svg class="service-inline-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+              <polyline points="9 22 9 12 15 12 15 22"></polyline>
+            </svg>
+            <h3 data-i18n="srv4_title">Property Management SaaS Platform (Real Estate)</h3>
+          </div>
+          <p data-i18n="srv4_desc">I develop property management systems for landlords and real estate businesses, featuring automated rent collection, digital lease management, tenant portals, and maintenance request tracking, built as a scalable multi-tenant SaaS using ASP.NET Core and Azure.</p>
+        </div>
+      </div>
+
+      <div class="service-card spotlight-card reveal-card">
+        <div>
+          <div class="service-heading-wrap">
+            <svg class="service-inline-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+              <line x1="16" y1="2" x2="16" y2="6"></line>
+              <line x1="8" y1="2" x2="8" y2="6"></line>
+              <line x1="3" y1="10" x2="21" y2="10"></line>
+            </svg>
+            <h3 data-i18n="srv5_title">Custom Booking & Reservation System</h3>
+          </div>
+          <p data-i18n="srv5_desc">I build reusable booking platforms for service-based businesses like salons, gyms, dental clinics, and event venues. Includes real-time availability, automated notifications, staff/resource scheduling, and payment integration, developed with ASP.NET Core and SignalR for real-time updates.</p>
+        </div>
+      </div>
+
+      <div class="service-card spotlight-card reveal-card">
+        <div>
+          <div class="service-heading-wrap">
+            <svg class="service-inline-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+              <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+            </svg>
+            <h3 data-i18n="srv6_title">Custom Corporate LMS with SCORM/xAPI Support</h3>
+          </div>
+          <p data-i18n="srv6_desc">I develop custom Learning Management Systems for companies and educational institutions that need more than off-the-shelf platforms like Moodle or LearnDash. Includes course management, quiz/certification engines, progress tracking, and SCORM/xAPI runtime integration, built with ASP.NET Core and SQL Server.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===================== PROJECTS ===================== -->
+<section id="projects" class="section-alt-bg">
+  <div class="wrap">
+    <h2 class="section-heading" data-i18n="portfolio_title">Featured Projects</h2>
+    <p class="section-sub" data-i18n="portfolio_sub">A few systems and platforms I have architected and deployed.</p>
+    <div class="portfolio-grid">
+
+      <!-- Project 1 -->
+      <div class="proj-card spotlight-card reveal-card">
+        <div class="proj-slider" data-images='["images/project-1a.jpg", "images/project-1b.jpg", "images/project-1c.jpg"]' data-index="0">
+          <div class="proj-image-container" onclick="openLightbox(this)" role="button" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openLightbox(this)}" aria-label="View project preview image">
+            <img class="slider-img" src="images/project-1a.jpg" alt="Ilove Text AI Document Chat preview" onerror="renderBlueprintFallback(this, 'AI DOCUMENT CHAT', 'PYTHON + OLLAMA')">
+          </div>
+          <div class="slider-controls">
+            <button type="button" class="slide-btn" aria-label="Previous image" onclick="changeSlide(event, this, -1)">❮</button>
+            <button type="button" class="slide-btn" aria-label="Next image" onclick="changeSlide(event, this, 1)">❯</button>
+          </div>
+        </div>
+        <div class="proj-tags-bar">
+          <span class="proj-tag">Python</span>
+          <span class="proj-tag">Ollama / LLaMA</span>
+          <span class="proj-tag">Vector Search</span>
+        </div>
+        <div class="proj-body">
+          <span class="proj-year">2023</span>
+          <h3 data-i18n="proj1_title">Ilove Text AI Document Chat</h3>
+          <p data-i18n="proj1_desc">Full-stack application enabling users to upload PDFs and query them via local LLM. Integrated Ollama (LLaMA) for completely offline AI inference, with a Python backend processing documents, vector embeddings, and semantic queries.</p>
+          <div class="proj-links">
+            <a href="https://github.com/ahmed151515/IloveText" target="_blank" rel="noopener noreferrer">
+              <span data-i18n="link_github">GitHub</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="7" y1="17" x2="17" y2="7"></line>
+                <polyline points="7 7 17 7 17 17"></polyline>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project 2 -->
+      <div class="proj-card spotlight-card reveal-card">
+        <div class="proj-slider" data-images='["images/project-2a.jpg", "images/project-2b.jpg", "images/project-2c.jpg"]' data-index="0">
+          <div class="proj-image-container" onclick="openLightbox(this)" role="button" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openLightbox(this)}" aria-label="View project preview image">
+            <img class="slider-img" src="images/project-2a.jpg" alt="Social Media Application preview" onerror="renderBlueprintFallback(this, 'SOCIAL PLATFORM', 'DJANGO REST + KOTLIN')">
+          </div>
+          <div class="slider-controls">
+            <button type="button" class="slide-btn" aria-label="Previous image" onclick="changeSlide(event, this, -1)">❮</button>
+            <button type="button" class="slide-btn" aria-label="Next image" onclick="changeSlide(event, this, 1)">❯</button>
+          </div>
+        </div>
+        <div class="proj-tags-bar">
+          <span class="proj-tag">Kotlin</span>
+          <span class="proj-tag">Jetpack Compose</span>
+          <span class="proj-tag">Django REST</span>
+        </div>
+        <div class="proj-body">
+          <span class="proj-year">2025</span>
+          <h3 data-i18n="proj2_title">Social Media Application</h3>
+          <p data-i18n="proj2_desc">Mobile community platform with dynamic feeds and real-time interaction. Kotlin + Jetpack Compose frontend architecture (MVVM), backed by a robust Django REST API managing authentication, notifications, and communities.</p>
+          <div class="proj-links">
+            <a href="https://github.com/LemmyNet/lemmy" target="_blank" rel="noopener noreferrer">
+              <span data-i18n="link_github">GitHub</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="7" y1="17" x2="17" y2="7"></line>
+                <polyline points="7 7 17 7 17 17"></polyline>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project 3 -->
+      <div class="proj-card spotlight-card reveal-card">
+        <div class="proj-slider" data-images='["images/project-3a.jpg", "images/project-3b.jpg", "images/project-3c.jpg"]' data-index="0">
+          <div class="proj-image-container" onclick="openLightbox(this)" role="button" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openLightbox(this)}" aria-label="View project preview image">
+            <img class="slider-img" src="images/project-3a.jpg" alt="Campus Hub Student Portal preview" onerror="renderBlueprintFallback(this, 'CAMPUS HUB PORTAL', 'PYTHON API + JETPACK')">
+          </div>
+          <div class="slider-controls">
+            <button type="button" class="slide-btn" aria-label="Previous image" onclick="changeSlide(event, this, -1)">❮</button>
+            <button type="button" class="slide-btn" aria-label="Next image" onclick="changeSlide(event, this, 1)">❯</button>
+          </div>
+        </div>
+        <div class="proj-tags-bar">
+          <span class="proj-tag">Kotlin</span>
+          <span class="proj-tag">Python Backend</span>
+          <span class="proj-tag">MVVM</span>
+        </div>
+        <div class="proj-body">
+          <span class="proj-year">2026</span>
+          <h3 data-i18n="proj3_title">Campus Hub: Student Portal</h3>
+          <p data-i18n="proj3_desc">Student management portal coordinating campus events and official announcements. Features Kotlin + Jetpack Compose (MVVM) with a Python backend providing real-time scheduling updates for Cairo Higher Institute.</p>
+          <div class="proj-links">
+            <a href="https://github.com/ahmed151515/CampusHup_API" target="_blank" rel="noopener noreferrer">
+              <span data-i18n="link_github">GitHub</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="7" y1="17" x2="17" y2="7"></line>
+                <polyline points="7 7 17 7 17 17"></polyline>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===================== TESTIMONIALS ===================== -->
+<section id="testimonials">
+  <div class="wrap">
+    <h2 class="section-heading" data-i18n="testimonials_title">What Clients Say</h2>
+    <p class="section-sub" data-i18n="testimonials_sub">Real feedback from clients and collaborators I have worked with.</p>
+
+    <div class="testimonials-grid">
+
+      <article class="testimonial-card spotlight-card reveal-card">
+        <div class="testimonial-top">
+          <h3 class="testimonial-project" data-i18n="review1_project">Full Stack .NET Developer</h3>
+          <span class="testimonial-date" data-i18n="review1_date">Feb 11, 2025 to Feb 20, 2025</span>
+        </div>
+        <div class="stars-row" aria-label="5 out of 5 stars">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+        </div>
+        <p class="testimonial-quote" data-i18n="review1_quote">
+          “I had a messy product that needed urgent fixing, and Ahmed Mohammed delivered exceptional results in record time! Their precision, attention to detail, and quality of work exceeded my expectations. Communication was smooth, and they went above and beyond to ensure everything was functioning perfectly. Highly recommended and will definitely work with them again!”
+        </p>
+        <div class="testimonial-client-row">
+          <span data-i18n="review1_client">Client Review</span>
+        </div>
+      </article>
+
+      <article class="testimonial-card spotlight-card reveal-card">
+        <div class="testimonial-top">
+          <h3 class="testimonial-project" data-i18n="review2_project">.NET Core Hotel Association Portal Website</h3>
+          <span class="testimonial-date" data-i18n="review2_date">Jun 22, 2026 to Jul 19, 2026</span>
+        </div>
+        <div class="stars-row" aria-label="5 out of 5 stars">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+        </div>
+        <p class="testimonial-quote" data-i18n="review2_quote">
+          “Highly recommend. The quality exceeded my expectations, and the entire experience was smooth from start to finish.”
+        </p>
+        <div class="testimonial-client-row">
+          <span data-i18n="review2_client">Client Review</span>
+          <span style="font-size: 13px; opacity: 0.85;">Verified Milestone</span>
+        </div>
+      </article>
+
+      <article class="testimonial-card spotlight-card reveal-card">
+        <div class="testimonial-top">
+          <h3 class="testimonial-project" data-i18n="review3_project">Supply Chain Inventory Management System (Microservices)</h3>
+          <span class="testimonial-date" data-i18n="review3_date">Jan 14, 2026 to Jun 18, 2026</span>
+        </div>
+        <div class="stars-row" aria-label="5 out of 5 stars">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+        </div>
+        <p class="testimonial-quote" data-i18n="review3_quote">
+          “Ahmed was a great client to work with. Communication was clear throughout the project, requirements were well explained. He was responsive, professional, and open to discussions when needed.”
+        </p>
+        <div class="testimonial-badges">
+          <span class="testimonial-badge" data-i18n="review3_badge1">Collaborative</span>
+          <span class="testimonial-badge" data-i18n="review3_badge2">Clear Communicator</span>
+          <span class="testimonial-badge" data-i18n="review3_badge3">Professional</span>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===================== LIGHTBOX MODAL ===================== -->
+<div class="lightbox" id="projectLightbox" onclick="closeLightbox(event)" aria-hidden="true" role="dialog" aria-modal="true">
+  <div class="lightbox-content">
+    <button class="lightbox-close" type="button" onclick="closeLightbox(event)" aria-label="Close image preview">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="18" y1="6" x2="6" y2="18"></line>
+        <line x1="6" y1="6" x2="18" y2="18"></line>
+      </svg>
+    </button>
+    <div id="lightboxMediaContainer"></div>
+  </div>
+</div>
+
+<!-- ===================== CONTACT ===================== -->
+<section id="contact">
+  <div class="wrap">
+    <div class="contact-box reveal-card">
+      <div>
+        <h2 data-i18n="contact_title">Let's build something reliable together</h2>
+        <p data-i18n="contact_desc">Open for freelance backend work, including API development, custom platforms, or resolving performance bottlenecks in .NET services. Usually replies within a business day.</p>
+      </div>
+      <ul class="contact-list">
+        <li class="contact-item">
+          <span data-i18n="label_email">Email</span>
+          <a href="mailto:eng.ahmed.mohammed33@gmail.com">eng.ahmed.mohammed33@gmail.com</a>
+        </li>
+        <li class="contact-item">
+          <span data-i18n="label_phone">Phone / WhatsApp</span>
+          <a href="tel:+201092055779">+20 109 205 5779</a>
+        </li>
+        <li class="contact-item">
+          <span data-i18n="label_linkedin">LinkedIn</span>
+          <a href="https://linkedin.com/in/ahmedm-dev" target="_blank" rel="noopener noreferrer">linkedin.com/in/ahmedm-dev</a>
+        </li>
+        <li class="contact-item">
+          <span data-i18n="label_github">GitHub</span>
+          <a href="https://github.com/arrm33" target="_blank" rel="noopener noreferrer">github.com/arrm33</a>
+        </li>
+        <li class="contact-item">
+          <span data-i18n="label_portfolio">Portfolio</span>
+          <a href="https://arrm33.github.io/protofolio" target="_blank" rel="noopener noreferrer">arrm33.github.io/protofolio</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span data-i18n="footer_text">© 2026 Ahmed Mohammed. All rights reserved.</span>
+  </div>
+</footer>
+
+<!-- ===================== SCRIPTS ===================== -->
+<script>
+/* ----------------------------------------------------
+   1. TRANSLATION & I18N SYSTEM (EN / AR)
+---------------------------------------------------- */
+const translations = {
+  en: {
+    nav_home: "Home",
+    nav_about: "About Me",
+    nav_resume: "Resume",
+    nav_services: "Services",
+    nav_projects: "Projects",
+    nav_testimonials: "Testimonials",
+    nav_contact: "Contact",
+    nav_connect: "Connect",
+    nav_connect_text: "Connect",
+    hero_status_tag: "ACTIVE",
+    hero_status: "Available for freelance and custom backend systems",
+    hero_role: "Commercial .NET Backend Developer",
+    hero_desc: "I turn business ideas and manual processes into simple, reliable web applications built for growth.",
+    hero_cta_portfolio_link: "Resume",
+    hero_cta_portfolio: "View Projects",
+    btn_resume: "Resume",
+    btn_projects: "View Projects",
+    arch_title: "WHAT I BUILD",
+    arch_status: "OPEN FOR NEW PROJECTS",
+    arch_label_core: "E-COMMERCE",
+    arch_val_core: "Custom online stores",
+    arch_label_db: "POS SYSTEMS",
+    arch_val_db: "Sales & inventory",
+    arch_label_pattern: "BACKEND APIs",
+    arch_val_pattern: "ASP.NET Core · JWT",
+    arch_label_special: "FIXES & SPEED",
+    arch_val_special: "Rescue messy projects",
+    m1_l: "REPLY", m1_v: "< 24h",
+    m2_l: "SCOPE", m2_v: "End-to-end",
+    m3_l: "SUPPORT", m3_v: "After launch",
+    about_title: "Professional Summary",
+    about_sub: "Architecting resilient backend systems with measurable business outcomes.",
+    stat1_label: "Featured production projects",
+    stat2_label: "GPA / 4.00 (B.Sc. Computer Science)",
+    stat3_label: "DEPI .NET Full-Stack Graduate (MCIT)",
+    about_p1: ".NET developer with hands-on experience building scalable backend systems and RESTful APIs using ASP.NET Core. I specialize in <strong>Clean Architecture, Entity Framework Core, SQL Server, and JWT authentication</strong>, with a strong focus on writing clean, maintainable, high-performance code.",
+    about_p2: "Experienced in building production-ready applications with robust architecture, role-based access control, and efficient data management, including exploring local LLM integration with Ollama for offline AI applications.",
+    lang_ar_native: "Arabic: Native",
+    lang_en_level: "English: Professional",
+    resume_title: "Education & Training",
+    resume_sub: "Academic foundation and rigorous specialized training behind the code.",
+    edu_date: "Sep 2022 to May 2026",
+    edu_title: "B.Sc. Computer Science",
+    edu_org: "CHI, Cairo, Egypt (GPA 3.38/4.00)",
+    edu_desc: "Core coursework: Data Structures, Software Architecture, Database Management, Artificial Intelligence, OOP.",
+    depi_date: "2026",
+    depi_title: "C# .NET Full-Stack Development",
+    depi_org: "Digital Egypt Pioneers Initiative (DEPI), MCIT",
+    depi_desc: "Intensive training in ASP.NET Core, RESTful APIs, Entity Framework Core, and SQL Server, applying Clean Architecture, authentication, authorization, and database design.",
+    skills1_label: "Core Skills",
+    skills1_title: "Backend & Architecture",
+    skills1_org: "Languages & Frameworks",
+    skills1_desc: "C#, Python, SQL, C++ · ASP.NET Core, .NET, RESTful APIs, EF Core, ASP.NET Core Identity · Clean Architecture, SOLID, Design Patterns.",
+    skills2_label: "Tools",
+    skills2_title: "Data, Auth & DevOps",
+    skills2_org: "Databases & Infrastructure",
+    skills2_desc: "SQL Server, EF Core, Database Design · JWT, Role-Based Access Control · Docker, Git, Linux, Swagger · Local LLM Integration with Ollama.",
+    services_title: "What I Can Build For You",
+    services_sub: "Ready-to-customize backend systems for real businesses, not just generic templates.",
+    srv1_title: "Custom E-Commerce with nopCommerce (ASP.NET Core)",
+    srv1_desc: "I build and customize online stores using nopCommerce, the leading ASP.NET Core e-commerce platform. Services include custom plugin development, payment gateway integration (Stripe/PayPal), theme customization, version upgrades without data loss, and performance optimization for high-traffic stores.",
+    srv2_title: "POS System for Restaurants & Retail Stores",
+    srv2_desc: "I develop custom Point-of-Sale systems for restaurants, cafes, and retail shops using ASP.NET Core and SQL Server. Features include order management, inventory tracking, sales reporting, receipt printing integration, and multi-branch support tailored to your business workflow.",
+    srv3_title: "Clinic & Medical Appointment Management System",
+    srv3_desc: "I build healthcare management platforms for clinics and medical practices, including appointment scheduling, patient records management, automated reminders, and secure payment processing, built with ASP.NET Core, Entity Framework, and SQL Server for reliability and data security.",
+    srv4_title: "Property Management SaaS Platform (Real Estate)",
+    srv4_desc: "I develop property management systems for landlords and real estate businesses, featuring automated rent collection, digital lease management, tenant portals, and maintenance request tracking, built as a scalable multi-tenant SaaS using ASP.NET Core and Azure.",
+    srv5_title: "Custom Booking & Reservation System",
+    srv5_desc: "I build reusable booking platforms for service-based businesses like salons, gyms, dental clinics, and event venues. Includes real-time availability, automated notifications, staff/resource scheduling, and payment integration, developed with ASP.NET Core and SignalR for real-time updates.",
+    srv6_title: "Custom Corporate LMS with SCORM/xAPI Support",
+    srv6_desc: "I develop custom Learning Management Systems for companies and educational institutions that need more than off-the-shelf platforms like Moodle or LearnDash. Includes course management, quiz/certification engines, progress tracking, and SCORM/xAPI runtime integration, built with ASP.NET Core and SQL Server.",
+    portfolio_title: "Featured Projects",
+    portfolio_sub: "A few systems and platforms I have architected and deployed.",
+    proj1_title: "Ilove Text AI Document Chat",
+    proj1_desc: "Full-stack application enabling users to upload PDFs and query them via local LLM. Integrated Ollama (LLaMA) for completely offline AI inference, with a Python backend processing documents, vector embeddings, and semantic queries.",
+    proj2_title: "Social Media Application",
+    proj2_desc: "Mobile community platform with dynamic feeds and real-time interaction. Kotlin + Jetpack Compose frontend architecture (MVVM), backed by a robust Django REST API managing authentication, notifications, and communities.",
+    proj3_title: "Campus Hub: Student Portal",
+    proj3_desc: "Student management portal coordinating campus events and official announcements. Features Kotlin + Jetpack Compose (MVVM) with a Python backend providing real-time scheduling updates for Cairo Higher Institute.",
+    link_github: "GitHub",
+    testimonials_title: "What Clients Say",
+    testimonials_sub: "Real feedback from clients and collaborators I have worked with.",
+    review1_project: "Full Stack .NET Developer",
+    review1_date: "Feb 11, 2025 to Feb 20, 2025",
+    review1_quote: "“I had a messy product that needed urgent fixing, and Muhammad Jazab delivered exceptional results in record time! Their precision, attention to detail, and quality of work exceeded my expectations. Communication was smooth, and they went above and beyond to ensure everything was functioning perfectly. Highly recommended and will definitely work with them again!”",
+    review1_client: "Client Review",
+    review2_project: ".NET Core Hotel Association Portal Website",
+    review2_date: "Jun 22, 2026 to Jul 19, 2026",
+    review2_quote: "“Highly recommend. The quality exceeded my expectations, and the entire experience was smooth from start to finish.”",
+    review2_client: "Client Review",
+    review3_project: "Supply Chain Inventory Management System (Microservices)",
+    review3_date: "Jan 14, 2026 to Jun 18, 2026",
+    review3_quote: "“Muhammad was a great client to work with. Communication was clear throughout the project, requirements were well explained. He was responsive, professional, and open to discussions when needed.”",
+    review3_badge1: "Collaborative",
+    review3_badge2: "Clear Communicator",
+    review3_badge3: "Professional",
+    contact_title: "Let's build something reliable together",
+    contact_desc: "Open for freelance backend work, including API development, custom platforms, or resolving performance bottlenecks in .NET services. Usually replies within a business day.",
+    label_email: "Email",
+    label_phone: "Phone / WhatsApp",
+    label_linkedin: "LinkedIn",
+    label_github: "GitHub",
+    label_portfolio: "Portfolio",
+    footer_text: "© 2026 Ahmed Mohammed. All rights reserved."
+  },
+  ar: {
+    nav_home: "الرئيسية",
+    nav_about: "نبذة عني",
+    nav_resume: "السيرة الذاتية",
+    nav_services: "الخدمات",
+    nav_projects: "المشاريع",
+    nav_testimonials: "آراء العملاء",
+    nav_contact: "تواصل معي",
+    nav_connect: "تواصل معي",
+    nav_connect_text: "تواصل معي",
+    hero_status_tag: "متاح",
+    hero_status: "متاح للعمل الحر وتطوير الأنظمة المخصصة",
+    hero_role: "مهندس برمجيات باك إند (.NET)",
+    hero_desc: "أحوّل أفكار الأعمال والعمليات اليدوية إلى تطبيقات ويب بسيطة وموثوقة، ومصممة للنمو والتوسع.",
+    hero_cta_portfolio_link: "السيرة الذاتية",
+    hero_cta_portfolio: "عرض المشاريع",
+    btn_resume: "السيرة الذاتية",
+    btn_projects: "عرض المشاريع",
+    arch_title: "ماذا أبني",
+    arch_status: "متاح لمشاريع جديدة",
+    arch_label_core: "التجارة الإلكترونية",
+    arch_val_core: "متاجر إلكترونية مخصصة",
+    arch_label_db: "أنظمة نقاط البيع",
+    arch_val_db: "مبيعات ومخزون",
+    arch_label_pattern: "واجهات الباك إند",
+    arch_val_pattern: "ASP.NET Core · JWT",
+    arch_label_special: "إصلاح وتسريع",
+    arch_val_special: "إنقاذ المشاريع المتعثرة",
+    m1_l: "الرد", m1_v: "خلال 24 ساعة",
+    m2_l: "النطاق", m2_v: "من الفكرة للتسليم",
+    m3_l: "الدعم", m3_v: "بعد الإطلاق",
+    about_title: "نبذة مهنية",
+    about_sub: "هندسة أنظمة برمجية متماسكة تحل تحديات الأعمال الواقعية بموثوقية وكفاءة.",
+    stat1_label: "مشاريع إنتاجية منجزة",
+    stat2_label: "المعدل التراكمي / 4.00 (بكالوريوس علوم الحاسب)",
+    stat3_label: "خريج DEPI فل ستاك .NET (وزارة الاتصالات)",
+    about_p1: "مطوّر .NET بخبرة تطبيقية في بناء أنظمة باك إند متطورة وواجهات RESTful APIs موثوقة. أركز على <strong>Clean Architecture وEntity Framework Core وSQL Server ومصادقة JWT</strong>، مع عناية فائقة بكتابة كود نظيف وسريع وسهل الصيانة والتطوير.",
+    about_p2: "خبرة واسعة في بناء تطبيقات تجارية متكاملة تدعم إدارة الصلاحيات حسب الأدوار ومعالجة البيانات بكفاءة، مع خبرة في دمج نماذج الذكاء الاصطناعي المحلية عبر Ollama لتشغيل الاستدلال بالكامل دون الحاجة للإنترنت.",
+    lang_ar_native: "العربية: لغة أم",
+    lang_en_level: "الإنجليزية: احترافي",
+    resume_title: "التعليم والتدريب المتقدم",
+    resume_sub: "الخلفية الأكاديمية والتدريب الهندسي التخصصي الذي تستند عليه الحلول البرمجية.",
+    edu_date: "سبتمبر 2022 إلى مايو 2026",
+    edu_title: "بكالوريوس علوم الحاسب",
+    edu_org: "CHI، القاهرة، مصر (معدل تراكمي 3.38/4.00)",
+    edu_desc: "أبرز المقررات: هياكل البيانات، هندسة البرمجيات، إدارة قواعد البيانات، الذكاء الاصطناعي، البرمجة كائنية التوجه OOP.",
+    depi_date: "2026",
+    depi_title: "تطوير C# .NET فل ستاك",
+    depi_org: "مبادرة رواد مصر الرقمية (DEPI) — وزارة الاتصالات",
+    depi_desc: "تدريب مكثف على ASP.NET Core وRESTful APIs وEntity Framework Core وSQL Server، مع تطبيق Clean Architecture وتأمين المصادقة وتصميم قواعد البيانات الضخمة.",
+    skills1_label: "المهارات الجوهرية",
+    skills1_title: "الباك إند والمعمارية",
+    skills1_org: "اللغات وأطر العمل",
+    skills1_desc: "C#, Python, SQL, C++ · ASP.NET Core, .NET, RESTful APIs, EF Core, ASP.NET Core Identity · Clean Architecture, SOLID, Design Patterns.",
+    skills2_label: "الأدوات والبنية",
+    skills2_title: "البيانات والمصادقة والعمليات",
+    skills2_org: "قواعد البيانات والبنية التحتية",
+    skills2_desc: "SQL Server, EF Core, Database Design · JWT, Role-Based Access Control · Docker, Git, Linux, Swagger · دمج الذكاء الاصطناعي المحلي عبر Ollama.",
+    services_title: "الخدمات والحلول التي أقدمها",
+    services_sub: "أنظمة برمجية جاهزة للتخصيص ومبنية خصيصًا لتلبية احتياجات نشاطك التجاري بدقة.",
+    srv1_title: "متاجر إلكترونية متقدمة بـ nopCommerce (ASP.NET Core)",
+    srv1_desc: "بناء وتخصيص متاجر إلكترونية احترافية على منصة nopCommerce الرائدة. تشمل الخدمات تطوير الإضافات البرمجية المخصصة، ربط بوابات الدفع الإلكتروني (Stripe/PayPal)، تخصيص التصميم، وترقية الإصدارات مع تحسين سرعة التحميل للمتاجر ذات الزيارات المرتفعة.",
+    srv2_title: "أنظمة نقاط البيع (POS) للمطاعم والمتاجر",
+    srv2_desc: "تطوير أنظمة POS مخصصة تناسب دورات العمل اليومية، مع إدارة الطلبات والمخزون والفواتير وطباعة الإيصالات ودعم الفروع المتعددة باستخدام ASP.NET Core وSQL Server.",
+    srv3_title: "نظام إدارة العيادات والمواعيد الطبية",
+    srv3_desc: "منصات إدارة طبية متكاملة لجدولة المواعيد وسجلات المرضى والتذكيرات الآلية ومعالجة المدفوعات بأمان وموثوقية عالية.",
+    srv4_title: "منصات SaaS لإدارة العقارات والأملاك",
+    srv4_desc: "أنظمة متعددة المستأجرين (Multi-tenant SaaS) لتحصيل الإيجارات تلقائيًا وإدارة عقود التأجير وبوابات المستأجرين وتتبع طلبات الصيانة عبر Azure.",
+    srv5_title: "أنظمة الحجز والجدولة المخصصة",
+    srv5_desc: "محركات حجز مرنة للأنشطة الخدمية (الصالونات، المراكز الرياضية، العيادات، الفعاليات) تدعم التوفر اللحظي وتعيين الموارد والإشعارات الفورية عبر SignalR.",
+    srv6_title: "أنظمة إدارة التعلم المؤسسية (LMS)",
+    srv6_desc: "أنظمة تعليمية وتدريبية مخصصة للمؤسسات التعليمية والشركات، تشمل إدارة الدورات والاختبارات التلقائية وإصدار الشهادات وتتبع أداء المتدربين بدعم معايير SCORM/xAPI.",
+    portfolio_title: "المشاريع المميزة",
+    portfolio_sub: "نماذج واقعية لأنظمة برمجية تم تصميمها وبناؤها وإطلاقها بنجاح.",
+    proj1_title: "Ilove Text AI: محادثة المستندات بالذكاء الاصطناعي",
+    proj1_desc: "تطبيق ويب متكامل يتيح للمستخدمين رفع ملفات PDF وطرح الأسئلة عليها عبر نموذج ذكاء اصطناعي محلي. تم دمج Ollama (LLaMA) لمعالجة النصوص بدون اتصال بالإنترنت، مع باك إند Python لتوليد التضمينات الدلالية.",
+    proj2_title: "تطبيق التواصل الاجتماعي التفاعلي",
+    proj2_desc: "منصة تواصل اجتماعي تدعم المنشورات والمجتمعات والتفاعل اللحظي. واجهة Kotlin وJetpack Compose بمعمارية MVVM، مدعومة بـ Django REST API لإدارة المصادقة والمحتوى.",
+    proj3_title: "Campus Hub: بوابة الطلاب والفعاليات الجامعية",
+    proj3_desc: "بوابة طلابية متكاملة لتنظيم الفعاليات الأكاديمية وإعلانات الحرم الجامعي. واجهة تطبيق Kotlin وJetpack Compose مع باك إند Python يقدم التحديثات الفورية للطلاب بالمعهد العالي بالقاهرة.",
+    link_github: "جيت هاب",
+    testimonials_title: "تجارب وآراء العملاء",
+    testimonials_sub: "تقييمات موثقة من أصحاب مشاريع وشركاء عمل سابقين.",
+    review1_project: "مطوّر Full Stack .NET",
+    review1_date: "11 فبراير 2025 إلى 20 فبراير 2025",
+    review1_quote: "«كان لدي نظام يحتاج إلى معالجة وإصلاحات عاجلة، وقدّم أحمد نتائج استثنائية في وقت قياسي! دقته واهتمامه بالتفاصيل وجودة عمله فاقت توقعاتي. كان التواصل سلسًا ومهنيًا للغاية، وبذل جهدًا إضافيًا لضمان عمل كل جزء بكفاءة تامة. أوصي بالعمل معه بشدة وسأتعاون معه مجددًا بالتأكيد!»",
+    review1_client: "مراجعة موثقة",
+    review2_project: "موقع بوابة جمعية الفنادق (.NET Core)",
+    review2_date: "22 يونيو 2026 إلى 19 يوليو 2026",
+    review2_quote: "«أنصح بالتعامل معه دون تردد. جودة العمل البرمجي والتنظيم فاقت التوقعات، وكانت التجربة البرمجية سلسة ومتقنة من البداية وحتى التسليم.»",
+    review2_client: "مراجعة موثقة",
+    review3_project: "نظام إدارة مخزون سلسلة التوريد (Microservices)",
+    review3_date: "14 يناير 2026 إلى 18 يونيو 2026",
+    review3_quote: "«تعاون احترافي ومميز للغاية. كان التواصل واضحًا على مدار المشروع، والمتطلبات مدروسة ومنفذة بدقة. مرونة عالية واستجابة سريعة مع فهم عميق لمعمارية الأنظمة.»",
+    review3_badge1: "متعاون ومبادر",
+    review3_badge2: "تواصل واضح وسريع",
+    review3_badge3: "هندسة احترافية",
+    contact_title: "لنبدأ في بناء نظام برمجي موثوق معًا",
+    contact_desc: "متاح للعمل على مشاريع برمجية جديدة: تطوير واجهات APIs، بناء منصات SaaS، حل مشاكل الأداء في أنظمة .NET، أو تطوير المتاجر. أرد عادةً خلال يوم عمل واحد.",
+    label_email: "البريد الإلكتروني",
+    label_phone: "الهاتف / واتساب",
+    label_linkedin: "لينكدإن",
+    label_github: "جيت هاب",
+    label_portfolio: "الموقع الشخصي",
+    footer_text: "© 2026 أحمد محمد. جميع الحقوق محفوظة."
+  }
+};
+
+let currentLang = 'en';
+let currentTheme = 'dark'; // Dark mode is default first
+
+function applyLang(lang) {
+  document.documentElement.lang = lang;
+  document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
+  document.documentElement.classList.toggle('lang-ar', lang === 'ar');
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.getAttribute('data-i18n');
+    if (translations[lang] && translations[lang][key] !== undefined) {
+      el.innerHTML = translations[lang][key];
+    }
+  });
+  document.getElementById('langToggle').textContent = lang === 'en' ? 'AR' : 'EN';
+  currentLang = lang;
+}
+
+function applyTheme(theme) {
+  document.documentElement.setAttribute('data-theme', theme);
+  const icon = document.getElementById('themeIcon');
+  if (theme === 'dark') {
+    // Show sun icon when in dark mode (click to toggle to light)
+    icon.innerHTML = '<circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>';
+  } else {
+    // Show moon icon when in light mode (click to toggle to dark)
+    icon.innerHTML = '<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>';
+  }
+  currentTheme = theme;
+}
+
+document.getElementById('langToggle').addEventListener('click', () => applyLang(currentLang === 'en' ? 'ar' : 'en'));
+document.getElementById('themeToggle').addEventListener('click', () => applyTheme(currentTheme === 'light' ? 'dark' : 'light'));
+
+/* ----------------------------------------------------
+   2. INTERACTIVE BACKEND TOPOLOGY CANVAS
+   Extraordinary 60fps connected node graph with data pulses
+---------------------------------------------------- */
+(function initTopologyCanvas() {
+  const canvas = document.getElementById('topologyCanvas');
+  if (!canvas) return;
+  const ctx = canvas.getContext('2d');
+
+  let width, height;
+  let animationFrameId;
+  let isVisible = true;
+  let lastActiveTime = performance.now();
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  const mouse = { x: -9999, y: -9999, targetX: -9999, targetY: -9999 };
+
+  function resize() {
+    const dpr = Math.min(window.devicePixelRatio || 1, 2);
+    width = canvas.parentElement.offsetWidth;
+    height = canvas.parentElement.offsetHeight;
+    canvas.width = width * dpr;
+    canvas.height = height * dpr;
+    ctx.scale(dpr, dpr);
+    createNodes();
+  }
+
+  const NODE_TYPES = ['API Gateway', 'Auth Service', 'DB Cluster', 'Cache Redis', 'Worker Pool', 'MQ Queue'];
+  let nodes = [];
+  let packets = [];
+
+  function createNodes() {
+    const count = Math.floor(Math.max(18, Math.min(36, (width * height) / 22000)));
+    nodes = [];
+    for (let i = 0; i < count; i++) {
+      nodes.push({
+        x: Math.random() * width,
+        y: Math.random() * height,
+        vx: (Math.random() - 0.5) * 0.4,
+        vy: (Math.random() - 0.5) * 0.4,
+        radius: Math.random() * 2.5 + 2.5,
+        label: NODE_TYPES[Math.floor(Math.random() * NODE_TYPES.length)],
+        pulse: Math.random() * Math.PI * 2
+      });
+    }
+  }
+
+  window.addEventListener('resize', resize, { passive: true });
+  resize();
+
+  window.addEventListener('mousemove', (e) => {
+    const rect = canvas.getBoundingClientRect();
+    mouse.targetX = e.clientX - rect.left;
+    mouse.targetY = e.clientY - rect.top;
+    lastActiveTime = performance.now();
+  }, { passive: true });
+
+  window.addEventListener('mouseleave', () => {
+    mouse.targetX = -9999;
+    mouse.targetY = -9999;
+  });
+
+  const observer = new IntersectionObserver((entries) => {
+    isVisible = entries[0].isIntersecting;
+    if (isVisible) {
+      lastActiveTime = performance.now();
+      loop();
+    } else {
+      cancelAnimationFrame(animationFrameId);
+    }
+  }, { threshold: 0.05 });
+  observer.observe(canvas.parentElement);
+
+  function loop(time) {
+    if (!isVisible) return;
+
+    mouse.x += (mouse.targetX - mouse.x) * 0.12;
+    mouse.y += (mouse.targetY - mouse.y) * 0.12;
+
+    ctx.clearRect(0, 0, width, height);
+
+    const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+    const nodeColor = isDark ? 'rgba(242, 179, 61, 0.7)' : 'rgba(11, 110, 122, 0.6)';
+    const lineColor = isDark ? '95, 201, 184' : '11, 110, 122';
+    const packetColor = isDark ? '#F2B33D' : '#B45F06';
+
+    for (let i = 0; i < nodes.length; i++) {
+      const n = nodes[i];
+
+      if (!prefersReducedMotion) {
+        n.x += n.vx;
+        n.y += n.vy;
+        n.pulse += 0.03;
+
+        if (n.x < 0 || n.x > width) n.vx *= -1;
+        if (n.y < 0 || n.y > height) n.vy *= -1;
+
+        const dx = mouse.x - n.x;
+        const dy = mouse.y - n.y;
+        const dist = Math.sqrt(dx * dx + dy * dy);
+        if (dist < 140 && dist > 1) {
+          const force = (140 - dist) / 140 * 0.45;
+          n.x -= (dx / dist) * force;
+          n.y -= (dy / dist) * force;
+        }
+      }
+
+      for (let j = i + 1; j < nodes.length; j++) {
+        const n2 = nodes[j];
+        const dist = Math.hypot(n.x - n2.x, n.y - n2.y);
+        const maxDist = 135;
+        if (dist < maxDist) {
+          const alpha = (1 - dist / maxDist) * (isDark ? 0.3 : 0.18);
+          ctx.beginPath();
+          ctx.moveTo(n.x, n.y);
+          ctx.lineTo(n2.x, n2.y);
+          ctx.strokeStyle = `rgba(${lineColor}, ${alpha})`;
+          ctx.lineWidth = 1;
+          ctx.stroke();
+
+          if (!prefersReducedMotion && Math.random() < 0.0015 && packets.length < 15) {
+            packets.push({
+              x: n.x, y: n.y,
+              startX: n.x, startY: n.y,
+              targetX: n2.x, targetY: n2.y,
+              progress: 0,
+              speed: 0.015 + Math.random() * 0.015
+            });
+          }
+        }
+      }
+
+      if (mouse.x > 0 && mouse.y > 0) {
+        const mouseDist = Math.hypot(n.x - mouse.x, n.y - mouse.y);
+        if (mouseDist < 160) {
+          const alpha = (1 - mouseDist / 160) * 0.4;
+          ctx.beginPath();
+          ctx.moveTo(n.x, n.y);
+          ctx.lineTo(mouse.x, mouse.y);
+          ctx.strokeStyle = `rgba(${isDark ? '242, 179, 61' : '180, 95, 6'}, ${alpha})`;
+          ctx.lineWidth = 1.2;
+          ctx.stroke();
+        }
+      }
+
+      const r = n.radius + (prefersReducedMotion ? 0 : Math.sin(n.pulse) * 0.6);
+      ctx.beginPath();
+      ctx.arc(n.x, n.y, Math.max(1, r), 0, Math.PI * 2);
+      ctx.fillStyle = nodeColor;
+      ctx.fill();
+    }
+
+    if (!prefersReducedMotion) {
+      for (let p = packets.length - 1; p >= 0; p--) {
+        const pkt = packets[p];
+        pkt.progress += pkt.speed;
+        pkt.x = pkt.startX + (pkt.targetX - pkt.startX) * pkt.progress;
+        pkt.y = pkt.startY + (pkt.targetY - pkt.startY) * pkt.progress;
+
+        ctx.beginPath();
+        ctx.arc(pkt.x, pkt.y, 2.2, 0, Math.PI * 2);
+        ctx.fillStyle = packetColor;
+        ctx.fill();
+
+        if (pkt.progress >= 1) {
+          packets.splice(p, 1);
+        }
+      }
+    }
+
+    if (!prefersReducedMotion && (time - lastActiveTime < 10000 || mouse.targetX > 0)) {
+      animationFrameId = requestAnimationFrame(loop);
+    } else if (prefersReducedMotion) {
+      // Static single render
+    } else {
+      animationFrameId = null;
+    }
+  }
+
+  window.addEventListener('mousemove', () => {
+    if (!animationFrameId && isVisible && !prefersReducedMotion) {
+      lastActiveTime = performance.now();
+      animationFrameId = requestAnimationFrame(loop);
+    }
+  }, { passive: true });
+
+  animationFrameId = requestAnimationFrame(loop);
+})();
+
+/* ----------------------------------------------------
+   3. STAGGERED SCROLL-DRIVEN ENTRY OBSERVER
+---------------------------------------------------- */
+(function initScrollObserver() {
+  const cards = document.querySelectorAll('.reveal-card');
+  if (!('IntersectionObserver' in window)) {
+    cards.forEach(c => c.classList.add('in-view'));
+    return;
+  }
+  const cardObserver = new IntersectionObserver((entries, obs) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('in-view');
+        obs.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+  cards.forEach(card => cardObserver.observe(card));
+})();
+
+/* ----------------------------------------------------
+   4. ARCHITECTURAL BLUEPRINT FALLBACK FOR IMAGES
+---------------------------------------------------- */
+function renderBlueprintFallback(imgEl, title, subtitle) {
+  const container = imgEl.parentElement;
+  if (!container) return;
+  imgEl.style.display = 'none';
+  const blueprint = document.createElement('div');
+  blueprint.className = 'fallback-blueprint';
+  blueprint.innerHTML = `
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+      <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+      <line x1="8" y1="21" x2="16" y2="21"></line>
+      <line x1="12" y1="17" x2="12" y2="21"></line>
+      <polyline points="7 8 10 11 7 14"></polyline>
+      <line x1="12" y1="14" x2="16" y2="14"></line>
+    </svg>
+    <span>${title}</span>
+    <small style="opacity:0.8;font-size:12.5px;font-family:var(--mono);margin-top:2px;">${subtitle}</small>
+  `;
+  container.appendChild(blueprint);
+}
+
+/* ----------------------------------------------------
+   5. PROJECT SLIDER & VIEW-TRANSITION LIGHTBOX
+---------------------------------------------------- */
+function changeSlide(event, btn, direction) {
+  event.stopPropagation();
+  const slider = btn.closest('.proj-slider');
+  const img = slider.querySelector('.slider-img');
+  const images = JSON.parse(slider.getAttribute('data-images'));
+  let currentIndex = parseInt(slider.getAttribute('data-index'));
+
+  currentIndex = (currentIndex + direction + images.length) % images.length;
+  slider.setAttribute('data-index', currentIndex);
+  img.style.display = 'block';
+  img.src = images[currentIndex];
+  const oldFallback = slider.querySelector('.fallback-blueprint');
+  if (oldFallback) oldFallback.remove();
+}
+
+function openLightbox(imageContainer) {
+  const slider = imageContainer.closest('.proj-slider');
+  const images = JSON.parse(slider.getAttribute('data-images'));
+  const currentIndex = parseInt(slider.getAttribute('data-index'));
+  const lightbox = document.getElementById('projectLightbox');
+  const container = document.getElementById('lightboxMediaContainer');
+
+  const targetSrc = images[currentIndex];
+  container.innerHTML = `<img src="${targetSrc}" alt="Expanded project screenshot" onerror="renderBlueprintFallback(this, 'PREVIEW EXPANDED', 'SYSTEM ARCHITECTURE')">`;
+
+  const triggerOpen = () => {
+    lightbox.classList.add('open');
+    lightbox.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+  };
+
+  if (document.startViewTransition && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    document.startViewTransition(() => {
+      triggerOpen();
+    });
+  } else {
+    triggerOpen();
+  }
+}
+
+function closeLightbox(event) {
+  if (event.target.id === 'projectLightbox' || event.target.closest('.lightbox-close')) {
+    const lightbox = document.getElementById('projectLightbox');
+    const triggerClose = () => {
+      lightbox.classList.remove('open');
+      lightbox.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+    };
+
+    if (document.startViewTransition && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      document.startViewTransition(() => {
+        triggerClose();
+      });
+    } else {
+      triggerClose();
+    }
+  }
+}
+
+window.addEventListener('keydown', (e) => {
+  const lightbox = document.getElementById('projectLightbox');
+  if (lightbox && lightbox.classList.contains('open')) {
+    if (e.key === 'Escape') {
+      closeLightbox({ target: lightbox });
+    }
+  }
+});
+
+// Initialize defaults: English language and Dark Theme by default
+applyLang('en');
+applyTheme('dark');
+</script>
+</body>
+</html>
